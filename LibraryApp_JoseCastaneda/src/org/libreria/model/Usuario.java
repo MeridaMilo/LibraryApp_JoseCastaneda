@@ -2,15 +2,14 @@ package org.libreria.model;
 
 import java.sql.Timestamp;
 
-//POJO: Nombre, atributos de clase, constructores, metodos(get y set) otros...
-//encapssulación, herencia, polimorfismo, abstractión
-
 /**
- *
+ * Representa a un usuario dentro del sistema de la librería.
+ * Funciona como un objeto POJO (Plain Old Java Object) que encapsula 
+ * la información de autenticación, perfil, rol y estado del usuario.
+ * 
  * @author informatica
  */
 public class Usuario {
-    //id, username, email, first_name, last_name, password_hash, rol, activo, fecha_creacion
     private int id;
     private String username;
     private String email;
@@ -22,16 +21,18 @@ public class Usuario {
     private Timestamp fechaCreacion;
 
     /**
-     *
+     * Constructor por defecto. Crea una nueva instancia de Usuario vacía.
      */
     public Usuario() {
     }
 
     /**
-     *
-     * @param id
-     * @param username
-     * @param rol
+     * Constructor parametrizado básico. Crea una nueva instancia de Usuario 
+     * con los datos de identificación y rol principales.
+     * 
+     * @param id identificador único del usuario
+     * @param username nombre de usuario único en el sistema
+     * @param rol rol o perfil de acceso asignado al usuario
      */
     public Usuario(int id, String username, String rol) {
         this.id = id;
@@ -40,13 +41,15 @@ public class Usuario {
     }
 
     /**
-     *
-     * @param username
-     * @param email
-     * @param firstName
-     * @param lastName
-     * @param passwordHash
-     * @param rol
+     * Constructor parametrizado completo para la creación o registro de un nuevo usuario, 
+     * omitiendo el ID y la fecha de creación (que generalmente se autogeneran en la base de datos).
+     * 
+     * @param username nombre de usuario único
+     * @param email correo electrónico de contacto
+     * @param firstName nombre(s) del usuario
+     * @param lastName apellido(s) del usuario
+     * @param passwordHash contraseña cifrada del usuario
+     * @param rol rol o perfil de acceso asignado al usuario
      */
     public Usuario(String username, String email, String firstName, String lastName,
             String passwordHash, String rol) {
@@ -59,152 +62,173 @@ public class Usuario {
     }
 
     /**
-     *
-     * @return
+     * Obtiene el rol o perfil de acceso asignado al usuario.
+     * 
+     * @return el rol del usuario como cadena de texto
      */
     public String getRol() {
         return rol;
     }
 
     /**
-     *
-     * @param rol
+     * Establece o modifica el rol o perfil de acceso del usuario.
+     * 
+     * @param rol el nuevo rol a asignar
      */
     public void setRol(String rol) {
         this.rol = rol;
     }
 
     /**
-     *
-     * @return
+     * Obtiene el identificador único del usuario.
+     * 
+     * @return el ID del usuario en formato entero
      */
     public int getId() {
         return id;
     }
 
     /**
-     *
-     * @param id
+     * Establece o modifica el identificador único del usuario.
+     * 
+     * @param id el nuevo ID a asignar
      */
     public void setId(int id) {
         this.id = id;
     }
 
     /**
-     *
-     * @return
+     * Obtiene el nombre de usuario utilizado para el acceso al sistema.
+     * 
+     * @return el nombre de usuario como cadena de texto
      */
     public String getUsername() {
         return username;
     }
 
     /**
-     *
-     * @param username
+     * Establece o modifica el nombre de usuario.
+     * 
+     * @param username el nuevo nombre de usuario a asignar
      */
     public void setUsername(String username) {
         this.username = username;
     }
 
     /**
-     *
-     * @return
+     * Obtiene el correo electrónico registrado del usuario.
+     * 
+     * @return el correo electrónico como cadena de texto
      */
     public String getEmail() {
         return email;
     }
 
     /**
-     *
-     * @param email
+     * Establece o modifica el correo electrónico del usuario.
+     * 
+     * @param email el nuevo correo electrónico a asignar
      */
     public void setEmail(String email) {
         this.email = email;
     }
 
     /**
-     *
-     * @return
+     * Obtiene el nombre (primer nombre) del usuario.
+     * 
+     * @return el nombre del usuario como cadena de texto
      */
     public String getFirstName() {
         return firstName;
     }
 
     /**
-     *
-     * @param firstName
+     * Establece o modifica el nombre del usuario.
+     * 
+     * @param firstName el nuevo nombre a asignar
      */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
     /**
-     *
-     * @return
+     * Obtiene el apellido del usuario.
+     * 
+     * @return el apellido del usuario como cadena de texto
      */
     public String getLastName() {
         return lastName;
     }
 
     /**
-     *
-     * @param lastName
+     * Establece o modifica el apellido del usuario.
+     * 
+     * @param lastName el nuevo apellido a asignar
      */
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
     /**
-     *
-     * @return
+     * Obtiene el hash de la contraseña del usuario.
+     * 
+     * @return la contraseña cifrada como cadena de texto
      */
     public String getPasswordHash() {
         return passwordHash;
     }
 
     /**
-     *
-     * @param passwordHash
+     * Establece o modifica el hash de la contraseña del usuario.
+     * 
+     * @param passwordHash la nueva contraseña cifrada a asignar
      */
     public void setPasswordHash(String passwordHash) {
         this.passwordHash = passwordHash;
     }
 
     /**
-     *
-     * @return
+     * Indica si el usuario se encuentra activo en el sistema.
+     * 
+     * @return {@code true} si el usuario está activo, {@code false} en caso contrario
      */
     public boolean isActivo() {
         return activo;
     }
 
     /**
-     *
-     * @param activo
+     * Establece o modifica el estado de actividad del usuario.
+     * 
+     * @param activo el nuevo estado de actividad a asignar
      */
     public void setActivo(boolean activo) {
         this.activo = activo;
     }
 
     /**
-     *
-     * @return
+     * Obtiene la fecha y hora exacta en la que se creó o registró el usuario.
+     * 
+     * @return un objeto {@link Timestamp} con la fecha de creación
      */
     public Timestamp getFechaCreacion() {
         return fechaCreacion;
     }
 
     /**
-     *
-     * @param fechaCreacion
+     * Establece o modifica la fecha de creación del usuario.
+     * 
+     * @param fechaCreacion el nuevo {@link Timestamp} de creación a asignar
      */
     public void setFechaCreacion(Timestamp fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
     }
 
     /**
-     *
-     * @return
+     * Devuelve una representación en cadena de texto del objeto Usuario,
+     * la cual corresponde estrictamente a su nombre de usuario ({@code username}).
+     * Es útil para componentes de interfaz gráfica como JComboBox o listas.
+     * 
+     * @return el nombre de usuario en formato String
      */
     @Override
     public String toString() {
