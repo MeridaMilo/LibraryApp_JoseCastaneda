@@ -120,7 +120,7 @@ public class Venta {
     public int getIdUsuario() {
         return idUsuario;
     }
-
+ 
     /**
      * Establece o modifica el identificador del usuario responsable de la venta.
      * 
